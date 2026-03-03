@@ -15,7 +15,7 @@
     :root{
       --bg:#0b1020; --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.68);
       --stroke:rgba(255,255,255,.12); --shadow:0 12px 30px rgba(0,0,0,.35);
-      --r:18px; --r2:22px;
+      --r2:22px;
     }
     *{box-sizing:border-box}
     body{
@@ -30,6 +30,7 @@
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 60px}
+
     .hero{
       display:flex;gap:18px;align-items:flex-start;justify-content:space-between;
       padding:18px;border:1px solid var(--stroke);
@@ -42,10 +43,8 @@
     .btn{
       border:1px solid var(--stroke); background:rgba(255,255,255,.07); color:var(--text);
       padding:10px 12px;border-radius:14px;cursor:pointer;font-weight:600;font-size:13px;
-      display:inline-flex;align-items:center;gap:8px;transition:transform .12s ease,background .12s ease,border-color .12s ease;
-      user-select:none;
+      display:inline-flex;align-items:center;gap:8px;
     }
-    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
     .btn.primary{
       background:linear-gradient(135deg, rgba(121,97,255,.9), rgba(0,212,255,.75));
       border-color:rgba(255,255,255,.22); color:#091023;
@@ -66,17 +65,8 @@
     .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:var(--muted);font-size:13px;gap:10px;flex-wrap:wrap;padding:0 4px}
     .badge{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.80);white-space:nowrap}
 
-    .panels{margin-top:14px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr 1fr}
-      .panels{grid-template-columns:1fr}
-      .hero{flex-direction:column}
-      .actions{justify-content:flex-start}
-    }
-    @media (max-width: 620px){
-      .grid{grid-template-columns:1fr}
-    }
     .panel{
+      margin-top:14px;
       border:1px solid var(--stroke);
       background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
       border-radius:var(--r2);
@@ -85,56 +75,28 @@
       backdrop-filter:blur(10px);
       overflow:hidden;
     }
-    .panel h2{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.2px;
-      color:rgba(255,255,255,.86);
-      display:flex;justify-content:space-between;align-items:center;gap:10px;
-    }
-    .trainerChips{display:flex;flex-wrap:wrap;gap:8px}
-    .chipBtn{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.86);
-      padding:8px 10px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:12.5px;
-      display:inline-flex;align-items:center;gap:8px;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
-      max-width:100%;
-    }
-    .chipBtn:hover{transform:translateY(-1px);background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.20)}
-    .chipBtn.active{
-      background:rgba(0,212,255,.18);
-      border-color:rgba(0,212,255,.35);
-    }
-    .countPill{
-      font-size:12px;
-      padding:4px 8px;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      color:rgba(255,255,255,.78);
-      white-space:nowrap;
-    }
-    #map{height:320px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+    .panel h2{margin:0 0 10px;font-size:14px;color:rgba(255,255,255,.86)}
+    #map{height:340px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
     .mapHint{margin-top:10px;color:var(--muted);font-size:12.5px}
 
     .cards{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    @media (max-width: 980px){ .cards{grid-template-columns:repeat(2,minmax(0,1fr))} }
-    @media (max-width: 620px){ .cards{grid-template-columns:1fr} }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero{flex-direction:column}
+      .actions{justify-content:flex-start}
+    }
+    @media (max-width: 620px){
+      .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+    }
 
     .card{
       border:1px solid var(--stroke);
       background:linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.05));
       border-radius:var(--r2); box-shadow:0 10px 26px rgba(0,0,0,.26);
       overflow:hidden; display:flex; flex-direction:column; min-height:170px;
-      transition:transform .14s ease,border-color .14s ease,background .14s ease;
     }
-    .card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06))}
     .card-head{display:flex;gap:12px;padding:14px 14px 10px;align-items:flex-start}
     .avatar{
       width:44px;height:44px;border-radius:14px;border:1px solid rgba(255,255,255,.14);
@@ -144,10 +106,10 @@
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     .name{flex:1;min-width:0}
     .name h3{margin:0;font-size:16px;letter-spacing:-.2px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .loc{margin:6px 0 0;color:var(--muted);font-size:12.8px;display:flex;gap:8px;flex-wrap:wrap}
+    .loc{margin:6px 0 0;color:var(--muted);font-size:12.8px}
 
     .chips{padding:0 14px 12px;display:flex;flex-wrap:wrap;gap:6px}
-    .chip{font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.86);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+    .chip{font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.86)}
     .chip.alt{background:rgba(121,97,255,.16);border-color:rgba(121,97,255,.30)}
     .chip.alt2{background:rgba(0,212,255,.14);border-color:rgba(0,212,255,.28)}
 
@@ -155,10 +117,7 @@
       margin-top:auto;padding:12px 14px 14px;border-top:1px solid rgba(255,255,255,.10);
       display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;
     }
-    .links{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:rgba(255,255,255,.78);font-size:13px}
-    .link{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
-    .link:hover{border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.09)}
-
+    .link{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);font-size:13px}
     .empty{
       margin-top:14px;padding:18px;border-radius:var(--r2);
       border:1px dashed rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--muted);
@@ -166,7 +125,7 @@
 
     @media print{
       body{background:#fff;color:#000}
-      .hero,.toolbar,.panels,.actions{display:none!important}
+      .hero,.toolbar,.panel,.actions{display:none!important}
       .wrap{padding:0;max-width:none}
       .cards{grid-template-columns:1fr}
       .card{box-shadow:none;background:#fff;border:1px solid #ddd}
@@ -180,7 +139,7 @@
   <div class="hero">
     <div class="title">
       <h1>Directory Facilitatori</h1>
-      <p>Demo: card filtrabili per Regione, Target principale e Trainer (nome). Include conteggio per trainer e mappa Italia cliccabile per Regione. Ordinamento automatico per Regione.</p>
+      <p>Filtra per Regione, Target principale e Trainer (nome). Clicca una regione sulla mappa per filtrare. Scarica un CSV dei risultati filtrati.</p>
     </div>
     <div class="actions">
       <button class="btn" id="btnPrint" type="button">🖨️ Stampa</button>
@@ -212,7 +171,6 @@
     <div class="meta">
       <div class="left">
         <span id="count">0 risultati</span>
-        <span style="margin-left:10px;">• ordinati per Regione</span>
       </div>
       <div class="right">
         <span class="badge">Fonte: Google Sheet</span>
@@ -220,18 +178,10 @@
     </div>
   </div>
 
-  <div class="panels">
-    <div class="panel">
-      <h2>Conteggio per trainer <span class="badge" id="trainerCountNote">—</span></h2>
-      <div class="trainerChips" id="trainerChips"></div>
-      <div class="mapHint">Clicca un trainer per filtrare (si somma agli altri filtri).</div>
-    </div>
-
-    <div class="panel">
-      <h2>Mappa Italia (conteggi per Regione) <span class="badge" id="mapNote">clicca una regione</span></h2>
-      <div id="map"></div>
-      <div class="mapHint">La mappa si aggiorna in base ai filtri attivi.</div>
-    </div>
+  <div class="panel">
+    <h2>Mappa Italia (clicca una regione)</h2>
+    <div id="map"></div>
+    <div class="mapHint">La mappa si colora in base ai risultati filtrati.</div>
   </div>
 
   <div id="cards" class="cards"></div>
@@ -239,12 +189,9 @@
 </div>
 
 <script>
-  // ✅ CONFIG (già i tuoi)
   const SHEET_ID = "1WZkzRioQX3gpegJNI27qIat8Nq9XBExRp6W9xeKQUco";
   const TAB_NAME = "Facilitatori";
   const DATA_URL = `https://opensheet.elk.sh/${SHEET_ID}/${encodeURIComponent(TAB_NAME)}`;
-
-  // GeoJSON regioni Italia (pubblico)
   const IT_REGIONS_GEOJSON_URL = "https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson";
 
   const $ = (id) => document.getElementById(id);
@@ -256,8 +203,6 @@
     return "https://" + u;
   };
   const uniqSorted = (arr) => [...new Set(arr.map(x => norm(x)).filter(Boolean))].sort((a,b)=>a.localeCompare(b, "it"));
-
-  // normalize regione names for matching geojson (basic)
   const normalizeRegion = (r) => norm(r)
     .replace(/\s+/g, " ")
     .replace("Trentino Alto Adige", "Trentino-Alto Adige/Südtirol")
@@ -272,8 +217,7 @@
   let raw = [];
   let filtered = [];
 
-  // Map state
-  let map, regionsLayer, regionsGeoJson;
+  let map, regionsLayer;
 
   async function load(){
     const res = await fetch(DATA_URL, { cache: "no-store" });
@@ -296,7 +240,7 @@
       };
     }).filter(r => r.FullName);
 
-    // ✅ Ordinamento automatico per Regione, poi Cognome, poi Nome
+    // Ordina per Regione, poi Cognome, poi Nome
     raw.sort((a,b) => {
       const r = a.Regione.localeCompare(b.Regione, "it");
       if (r !== 0) return r;
@@ -341,22 +285,7 @@
     });
 
     render();
-    renderTrainerCounts();
     updateMapChoropleth();
-  }
-
-  function render(){
-    $("count").textContent = `${filtered.length} risultati`;
-    const container = $("cards");
-    container.innerHTML = "";
-
-    if (!filtered.length){
-      $("empty").style.display = "block";
-      return;
-    }
-    $("empty").style.display = "none";
-
-    filtered.forEach(r => container.appendChild(cardEl(r)));
   }
 
   function chip(text, cls=""){
@@ -408,8 +337,6 @@
     foot.className = "card-foot";
 
     const links = document.createElement("div");
-    links.className = "links";
-
     if (r.LinkedIn){
       const a = document.createElement("a");
       a.className = "link";
@@ -434,36 +361,21 @@
     return card;
   }
 
-  // ✅ Conteggio per trainer (cliccabile)
-  function renderTrainerCounts(){
-    const el = $("trainerChips");
-    el.innerHTML = "";
+  function render(){
+    $("count").textContent = `${filtered.length} risultati`;
+    const container = $("cards");
+    container.innerHTML = "";
 
-    const counts = new Map();
-    filtered.forEach(r => {
-      const key = r.Trainer || "—";
-      counts.set(key, (counts.get(key) || 0) + 1);
-    });
+    if (!filtered.length){
+      $("empty").style.display = "block";
+      return;
+    }
+    $("empty").style.display = "none";
 
-    const entries = [...counts.entries()].sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0], "it"));
-    $("trainerCountNote").textContent = `${entries.length} trainer`;
-
-    const activeTrainer = norm($("trainerSel").value);
-
-    entries.forEach(([trainer, n]) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "chipBtn" + (activeTrainer === trainer ? " active" : "");
-      btn.innerHTML = `<span>${trainer}</span><span class="countPill">${n}</span>`;
-      btn.onclick = () => {
-        $("trainerSel").value = (activeTrainer === trainer ? "" : trainer);
-        applyFilters();
-      };
-      el.appendChild(btn);
-    });
+    filtered.forEach(r => container.appendChild(cardEl(r)));
   }
 
-  // ✅ CSV filtrato
+  // CSV filtrato
   function downloadCSV(){
     const rows = filtered.map(r => ({
       ID: r.ID,
@@ -515,25 +427,23 @@
   $("btnReset").addEventListener("click", resetFilters);
   $("btnPrint").addEventListener("click", () => window.print());
 
-  // ✅ MAP
+  // MAP
   async function initMap(){
     map = L.map("map", { zoomControl: true, scrollWheelZoom: false }).setView([42.8, 12.7], 5);
-
-    // Base layer
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 10,
       attribution: "&copy; OpenStreetMap"
     }).addTo(map);
 
     const res = await fetch(IT_REGIONS_GEOJSON_URL, { cache: "force-cache" });
-    regionsGeoJson = await res.json();
+    const geo = await res.json();
 
-    regionsLayer = L.geoJSON(regionsGeoJson, {
+    regionsLayer = L.geoJSON(geo, {
       style: () => ({
         weight: 1,
         color: "rgba(255,255,255,.35)",
         fillColor: "rgba(255,255,255,.12)",
-        fillOpacity: 0.6
+        fillOpacity: 0.75
       }),
       onEachFeature: (feature, layer) => {
         layer.on({
@@ -551,19 +461,9 @@
     updateMapChoropleth();
   }
 
-  function getCountsByRegion(){
-    const m = new Map();
-    filtered.forEach(r => {
-      const key = r.Regione || "—";
-      m.set(key, (m.get(key) || 0) + 1);
-    });
-    return m;
-  }
-
   function colorFor(n, max){
     if (!n) return "rgba(255,255,255,.10)";
     const t = max ? (n / max) : 0;
-    // semplice gradiente “cyan”
     const a = 0.15 + 0.55 * t;
     return `rgba(0, 212, 255, ${a.toFixed(3)})`;
   }
@@ -571,7 +471,8 @@
   function updateMapChoropleth(){
     if (!regionsLayer) return;
 
-    const counts = getCountsByRegion();
+    const counts = new Map();
+    filtered.forEach(r => counts.set(r.Regione, (counts.get(r.Regione) || 0) + 1));
     const max = Math.max(0, ...counts.values());
 
     regionsLayer.eachLayer(layer => {
@@ -586,12 +487,10 @@
         color: "rgba(255,255,255,.35)"
       });
 
-      const label = `${name}: ${n}`;
-      layer.bindTooltip(label, { sticky: true, direction: "auto" });
+      layer.bindTooltip(`${name}: ${n}`, { sticky: true, direction: "auto" });
     });
   }
 
-  // start
   load();
 </script>
 </body>
